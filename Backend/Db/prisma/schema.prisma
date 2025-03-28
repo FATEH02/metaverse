@@ -1,0 +1,96 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//USERMODEL to store model
+
+model User {
+  id       String  @id @unique @default(cuid())
+  username String  @unique
+  password String  
+  avatarId String?
+  role     Role @default(User)
+  spaces   Space[] 
+  avatar   Avatar? @relation(fields: [avatarId], references: [id])
+  avtarId  String?
+  //user can create many mpas (one->many)
+}
+
+//space model define width height etc
+
+model Space {
+  id        String  @id @unique @default(cuid())
+  name      String
+  width     Int
+  height    Int
+  thumbnail String?
+  creatorId   String
+  creator    User @relation(fields: [creatorId ] ,references:[id])
+  elements   spaceElements[]
+  //one to one 
+}
+
+//elements inside table
+
+model spaceElements {
+  id        String @id @unique @default(cuid())
+  elementId String
+  spaceId   String
+  x         Int
+  y         Int
+  space     Space @relation(fields: [spaceId],references:[id])
+  element   Element @relation(fields: [elementId], references:[id])
+}
+
+//element information
+
+model Element {
+  id            String @id @unique @default(cuid())
+  width         Int
+  height        Int
+  static        Boolean
+  imageUrl      String
+  spaces        spaceElements[]
+  mapElements   MapapElements[]   
+}
+
+//map modekl
+
+model Map {
+  id     String  @id @unique @default(cuid())
+  width  Int
+  height Int
+  name   String
+  thumbnail String
+  mapElements  MapapElements[]
+}
+
+//specific map what elemtns available
+model MapapElements {
+  id        String  @id @unique @default(cuid())
+  mapId     String
+  elementId String
+  x         Int?
+  y         Int?
+  map       Map     @relation(fields: [mapId] , references: [id])  
+  element   Element @relation(fields: [elementId], references:[id])
+}
+
+model Avatar {
+  id       String  @id @unique @default(cuid())
+  imageUrl String?
+  name     String?
+  users     User[]
+}
+
+enum Role {
+  Admin
+  User
+}

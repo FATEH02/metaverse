@@ -1,0 +1,48 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "mymap.json": {
+            "scale": 0.3609151785714285,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1120.7619518832337,
+                "y": 1059.8058012245658
+            }
+        },
+        "mymap.json#tiles1": {
+            "scaleInDock": 1
+        },
+        "mymap1.tmj": {
+            "scale": 0.3609151785714285,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1120.7619518832337,
+                "y": 1119.3765848228095
+            }
+        },
+        "mymap1.tmj#tiles1": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "/home/fateh/Desktop/Metaverse/MetaverseFrontend/websocketlayer/assets",
+    "last.imagePath": "/home/fateh/Desktop/Metaverse/MetaverseFrontend/websocketlayer/assets",
+    "map.height": 70,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "json",
+    "map.width": 70,
+    "openFiles": [
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+        "mymap1.tmj",
+        "mymap.json"
+    ],
+    "tileset.embedInMap": true
+}
