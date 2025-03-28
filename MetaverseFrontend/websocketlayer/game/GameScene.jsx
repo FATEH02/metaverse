@@ -21,7 +21,7 @@ class GameScene extends Phaser.Scene {
         spacing: 0,
       }
     );
-
+    
     this.load.image("background", "/websocketlayer/assets/grass.png");
   }
   create() {
